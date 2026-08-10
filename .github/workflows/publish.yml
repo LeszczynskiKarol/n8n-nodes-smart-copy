@@ -1,0 +1,27 @@
+# Publikacja do npm z provenance (wymóg weryfikacji n8n od 2026-05-01).
+# Autoryzacja przez OIDC trusted publishing — bez tokenów w sekretach:
+# na npmjs.com w ustawieniach pakietu dodaj Trusted Publisher wskazujący
+# to repo i ten plik workflow.
+name: Publish to npm
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest
+      - run: npm install --ignore-scripts
+      - run: npm run build
+      - run: npm publish --access public --provenance

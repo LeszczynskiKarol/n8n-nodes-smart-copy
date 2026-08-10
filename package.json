@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-smart-copy",
+  "version": "0.1.0",
+  "description": "n8n nodes for Smart-Copy — AI-written, researched texts with featured images and automatic WordPress publishing",
+  "keywords": [
+    "n8n-community-node-package",
+    "smart-copy",
+    "ai",
+    "content",
+    "copywriting",
+    "wordpress"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.smart-copy.ai/integrations/n8n",
+  "author": {
+    "name": "Smart-Copy",
+    "email": "support@smart-copy.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeszczynskiKarol/n8n-nodes-smart-copy.git"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && node scripts/copy-icons.js",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/SmartCopyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/SmartCopy/SmartCopy.node.js",
+      "dist/nodes/SmartCopy/SmartCopyTrigger.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "n8n-workflow": "^1.70.0",
+    "typescript": "^5.5.4"
+  }
+}
