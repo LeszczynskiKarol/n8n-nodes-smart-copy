@@ -134,7 +134,7 @@ export class SmartCopy implements INodeType {
         required: true,
         default: 8000,
         description:
-          "500-30000. 2000 characters is roughly one page. Billed per 1000 characters.",
+          "500-300000. 2000 characters is roughly one page. Billed degressively per 1000 characters.",
         displayOptions: { show: { resource: ["text"], operation: ["create"] } },
         routing: { send: { type: "body", property: "length" } },
       },

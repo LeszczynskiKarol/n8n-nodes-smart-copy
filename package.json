@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-smart-copy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n nodes for Smart-Copy — AI-written, researched texts with featured images and automatic WordPress publishing",
   "keywords": [
     "n8n-community-node-package",
